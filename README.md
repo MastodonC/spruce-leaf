@@ -7,8 +7,10 @@ With Spruce-leaf you can describe the visualisation in JSON format: merge geojso
 ## Using the library
 
 See [spruce-leaf examples] [1] to see the library in action.
+For live example click [here] [2].
 
   [1]: http://github.com/MastodonC/spruce-leaf-examples       "Spruce-leaf examples"
+  [2]: http://rawgithub.com/MastodonC/spruce-leaf-examples/master/diabetes_spend.html       "Live example"
 
 Usage
 -----
