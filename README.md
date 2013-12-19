@@ -1,8 +1,8 @@
 spruce-leaf
 ===========
 
-Spruce-leaf is a visualization grammar, a declarative format for creating interactive leaflet maps.
-With Spruce-leaf you can describe the visualisation in JSON format: merge geojson with CSV file, colour the features, add legend and info box.
+Spruce-leaf is a visualization grammar - a declarative format for creating interactive leaflet maps.
+With spruce-leaf you can describe the visualisation in JSON format: merge geojson with CSV file, colour the features, add legend and info box.
 
 ## Using the library
 
@@ -66,7 +66,7 @@ Specification file is in JSON format, and has the following structure:
 
 1.  div
     
-    Specifies div in html in which the map should be placed.
+    Specifies name of a section in html document in which the map will be placed.
 
 2.  view
     
@@ -74,21 +74,37 @@ Specification file is in JSON format, and has the following structure:
 
 3.  zoom
     
-    Specifies the default zoom level.
+    Specifies the default zoom level (user will zoom in/out starting from the default level).
 
 4.  data
     
-    **csv_url** : Path to the csv file
-    **json_url** : Path to json file (it can be geojson or topojson file)
+    **csv_url** : Path to the CSV file
+
+    **json_url** : Path to JSON file (it can be either geojson or topojson file)
 
 6.  merge
     
-    **csv_key**: Field on which CSV file should be merged with json file
-    **json_object**: Name of the json object that contains feature data in json file
+    **csv_key**: Field on which CSV file should be merged with json file (common attribute, e.g. CCG code)
+
+    **json_object**: Name of the geojson object that contains feature data in the file. It can be retrieved by copying it from the file, which usually looks like this where object name is "gp_geojson":
+
+```
+{"type":"Topology","transform":{"scale":[0.0008065826582658266,0.0005860991099109911],"translate":[-6.308047,49.91201]},
+"objects":{"gp_geojson":
+{"type":"GeometryCollection",
+"geometries":[
+{"type":"Point","coordinates":[6187,7933],"properties":{"practice_code":"A81001",
+"practice_name":"THE DENSHAM SURGERY"}},
+{"type":"Point","coordinates":[6194,7946],"properties":{"practice_code":"A81002","practice_name":"QUEENS PARK MEDICAL CENTRE"}},
+{"type":"Point","coordinates":[6313,8144],"properties":(....)
+
+```
+
 
 7.  legend
     
     **title**: Title for the legend
+
     **categories**: Either categories or range can be used. Categories can be listed like this:
     
     ```
