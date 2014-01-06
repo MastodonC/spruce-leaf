@@ -15,6 +15,59 @@ For live example click [here] [2].
 Usage
 -----
 
+### Prepare a webpage
+Code snippet below shows the simplified structure of the webpage that will display the map:
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        #map {
+            width: 600px;
+            height: 600px;
+            margin: 0px 20px;
+        }
+    </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+  <script src="http://d3js.org/topojson.v1.min.js"></script>
+  <script src="http://d3js.org/d3.v3.js" charset="utf-8"></script>
+  <script src="http://underscorejs.org/underscore-min.js"></script>
+  <script src="http://d3js.org/queue.v1.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>
+
+  <!-- leaflet -->
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.css"/>
+  <script src="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.js"></script>
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.ie.css"/>
+  <![endif]-->
+
+  <!-- spruce-leaf -->
+  <script src="http://rawgithub.com/MastodonC/spruce-leaf/master/spruce-leaf.js"></script>
+  <!-- sugar -->
+  <link href="css/legend.css" rel="stylesheet" type="text/css">
+  
+  <!-- put it all on a page -->
+  <script type="text/javascript">
+    spruceleaf("specs/spend_specification.json");
+  </script>
+  
+</body>
+<script src="http://d3js.org/d3.v3.js"></script>
+</html>
+
+```
+The most important thing to note is this line:
+```
+spruceleaf("spend_specification.json");
+```
+It calls the spruceleaf library and passes the location and name of the specification file in your project. Specification file tells the library what datasets, colours, type of the legend and information box should be used. Detailed usage of the specification file is described in the section below.
+
 ### Spruce-leaf json specification file
 
 Specification file is in JSON format, and has the following structure:
